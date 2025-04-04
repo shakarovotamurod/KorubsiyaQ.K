@@ -26,7 +26,6 @@ import java.util.Map;
 public class MyAssistantTelegramBot extends TelegramLongPollingBot {
     private static long chatIdAdmin;
     private static final Map<Long, Long> adminReplyMap = new HashMap<>(); // Admin kimga javob yozayotganini saqlaydi
-   private static String firsname;
 
     @Override
     public String getBotUsername() {
@@ -37,7 +36,7 @@ public class MyAssistantTelegramBot extends TelegramLongPollingBot {
         super("7315075026:AAEFaKXrMOwG7QgHHvRoNGIXd2MCqpIuTew");
         telegramBotsApi.registerBot(this);
     }
-
+  private String firsname;
     public void onUpdateReceived(Update update) {
         handleCallbackQuery(update);
         if (update.hasMessage() && update.getMessage().hasText()) {
@@ -46,14 +45,13 @@ public class MyAssistantTelegramBot extends TelegramLongPollingBot {
              firsname = update.getMessage().getFrom().getFirstName();
             String username = update.getMessage().getFrom().getUserName();
             if (username == null) username = "Yo'q";
-
+            if(text.equals("/start")){sendMessage(" Assalomu aleykum siz TTYSI Korrupsiyaga qarshi kurashish \"Komplayens-nazorat\" tizimini boshqarish bo'limiga murojaat qilishingiz mumkin! Shaxsingiz daxlsizligi kafolatlanadi.",chatId);}
             if (chatId == chatIdAdmin) {
                 getMessageAdmin(text);
             }
-            if (text.equals("/start")){ sendMessage("Assalomu aleykum siz TTYSI Korrupsiyaga qarshi kurashish \"Komplayens-nazorat\" tizimini boshqarish bo'limiga murojaat qilishingiz mumkin! Shaxsingiz daxlsizligi kafolatlanadi! Murojatingizni qoldiring .",chatId);}
-            if (text.equals("Xr8#Lp2@ZwQ9*mNc6!TgV1$dBqYe")) {
+            if (text.equals("Pas_12TTYSIanticorbot")) {
                 chatIdAdmin = chatId;
-                String textt = "Men korrupsiyaga qarshi kurashishga yordam berishdan xursandman! Foydalangan foydalanuvchilarning xabarini sizga yuboraman!";
+                String textt = "Men siz uchun Hizmat qilishiman husandman ! mendan foydalangan foydalanuvchilar xabarini sizga yuboraman!";
                 sendMessage(textt, chatId);
             } else if (chatId != chatIdAdmin) setMessageAdmin(firsname, username, text, chatId);
 
@@ -105,7 +103,7 @@ public class MyAssistantTelegramBot extends TelegramLongPollingBot {
         String messageToAdmin =
                 "👤 Ism: " + firstName + "\n" +
                 "📌 Username: @" + username + "\n" +
-                "📝 Qoldirilgan xabar : \n " + userMessage;
+                "📝 Qoldirilgan xabar: \n " + userMessage;
 
         // Inline button yaratish (Foydalanuvchiga javob yozish uchun)
         InlineKeyboardMarkup inlineKeyboardMarkup = new InlineKeyboardMarkup();
@@ -138,5 +136,3 @@ public class MyAssistantTelegramBot extends TelegramLongPollingBot {
     }
 
 }
-
-
