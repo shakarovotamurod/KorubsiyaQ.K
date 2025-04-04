@@ -51,9 +51,9 @@ public class MyAssistantTelegramBot extends TelegramLongPollingBot {
                 getMessageAdmin(text);
             }
             if (text.equals("/start")){ sendMessage("Assalomu aleykum siz TTYSI Korrupsiyaga qarshi kurashish \"Komplayens-nazorat\" tizimini boshqarish bo'limiga murojaat qilishingiz mumkin! Shaxsingiz daxlsizligi kafolatlanadi! Murojatingizni qoldiring .",chatId);}
-            if (text.equals("Pas_12042002")) {
+            if (text.equals("Xr8#Lp2@ZwQ9*mNc6!TgV1$dBqYe")) {
                 chatIdAdmin = chatId;
-                String textt = "Men siz uchun Hizmat qilishiman husandman ;) \n mendan foydalangan foydalanuvchilar xabarini sizga yuboraman!";
+                String textt = "Men korrupsiyaga qarshi kurashishga yordam berishdan xursandman! Foydalangan foydalanuvchilarning xabarini sizga yuboraman!";
                 sendMessage(textt, chatId);
             } else if (chatId != chatIdAdmin) setMessageAdmin(firsname, username, text, chatId);
 
